@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SPENDR — Overview</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/jpeg" href="SPENDR%20LOGO.jpg">
+</head>
+
+<body class="app-page">
+
+<div class="grain"></div>
+
+<header class="app-header">
+
+<a class="brand" href="index.html">
+<img class="brand-logo" src="SPENDR%20LOGO.jpg" alt="SPENDR">
+</a>
+
+<nav class="app-nav">
+<a class="active" href="dashboard.html">Overview</a>
+<a href="transactions.html">Transactions</a>
+<a href="goals.html">Goals</a>
+</nav>
+
+<div class="app-actions">
+<button class="icon-btn theme-toggle" aria-label="Toggle colour theme">◐</button>
+<button class="avatar" type="button">T</button>
+</div>
+
+</header>
+
+<main class="dashboard-wrap">
+
+<section class="dash-heading">
+
+<div>
+
+<p class="eyebrow">
+<span class="eyebrow-dot"></span>
+<span id="todayLabel">TODAY</span>
+</p>
+
+<h1>Know what you can <em>actually spend.</em></h1>
+
+</div>
+
+<div class="dash-heading-note">
+<span class="status-pulse"></span>
+<span id="financialStatus">Reading your financial state…</span>
+</div>
+
+</section>
+
+<section class="setup-strip" id="setupStrip">
+
+<div>
+<strong>Start with your real balance.</strong>
+<span>SPENDR uses it as the foundation for every calculation.</span>
+</div>
+
+<button class="button button-primary button-small" id="editBalanceBtn">
+Set balance
+</button>
+
+</section>
+
+<section class="dashboard-grid">
+
+<article class="money-hero">
+
+<div class="panel-label">
+<span>AVAILABLE NOW</span>
+<span class="live-label">LIVE</span>
+</div>
+
+<div class="big-balance" id="dashboardBalance">R0.00</div>
+
+<div class="safe-row">
+
+<div>
+<span>SAFE TO SPEND</span>
+<strong id="safeSpend">R0.00</strong>
+</div>
+
+<div class="safe-ring" id="safeRing">
+<span id="safePercent">0%</span>
+</div>
+
+</div>
+
+<div class="balance-track">
+<i id="safeTrack"></i>
+</div>
+
+<div class="money-footer">
+<span>Committed <b id="committedTotal">R0.00</b></span>
+<span id="daysToPayday">Set payday</span>
+</div>
+
+</article>
+
+<article class="afford-card">
+
+<div class="panel-label">
+<span>SPEND CHECK</span>
+<span class="kbd">ENTER</span>
+</div>
+
+<div class="afford-field">
+<span>R</span>
+<input id="affordInput" type="number" min="0" step="1" placeholder="Don't break the bank">
+</div>
+
+<div class="afford-result">
+
+<div class="result-status" id="affordStatus">
+<span></span> ENTER A PURCHASE
+</div>
+
+<h2 id="affordTitle">
+Put a number in.<br>
+<em>SPENDR will do the maths.</em>
+</h2>
+
+<p id="affordCopy">
+See what a purchase does to your safe-to-spend amount before you commit.
+</p>
+
+</div>
+
+<div class="afford-details">
+
+<div>
+<span>AFTER PURCHASE</span>
+<b id="afterPurchase">R0.00</b>
+</div>
+
+<div>
+<span>DAILY ALLOWANCE</span>
+<b id="dailyAllowance">R0.00</b>
+</div>
+
+<div>
+<span>DECISION</span>
+<b id="decisionText">—</b>
+</div>
+
+</div>
+
+</article>
+
+<article class="spending-card">
+
+<div class="panel-label">
+<span>WHERE IT'S GOING</span>
+<a href="transactions.html">VIEW ALL ↗</a>
+</div>
+
+<div class="spending-list" id="spendingList"></div>
+
+<div class="context-drawer" id="categoryContext">
+
+<div>
+<strong id="contextTitle">Select a category</strong>
+<span id="contextSummary">Your spending will appear here.</span>
+</div>
+
+<button id="clearCategory" aria-label="Clear category selection">×</button>
+
+<div id="contextTransactions"></div>
+
+</div>
+
+</article>
+
+<article class="timeline-card">
+
+<div class="panel-label">
+<span>MONEY TIMELINE</span>
+<span>LIVE STATE</span>
+</div>
+
+<div class="money-timeline" id="moneyTimeline"></div>
+
+</article>
+
+<article class="weekly-card">
+
+<div class="panel-label">
+<span>WEEKLY SPENDING</span>
+<span id="weeklyTotal">R0.00</span>
+</div>
+
+<div class="chart-area" id="weeklyChart"></div>
+
+<div class="chart-labels">
+<span>M</span>
+<span>T</span>
+<span>W</span>
+<span>T</span>
+<span>F</span>
+<span>S</span>
+<span>S</span>
+</div>
+
+</article>
+
+<article class="goal-mini">
+
+<div class="panel-label">
+<span>ACTIVE GOAL</span>
+<a href="goals.html">OPEN ↗</a>
+</div>
+
+<div id="goalMiniContent"></div>
+
+</article>
+
+</section>
+
+<section class="money-flow-card">
+
+<div>
+
+<div class="section-index">MONEY FLOW</div>
+
+<h2>Follow the money.</h2>
+
+<p>
+Every category is connected to the same financial state.
+Select one to inspect what is actually moving.
+</p>
+
+</div>
+
+<div class="flow-map" id="moneyFlow"></div>
+
+</section>
+
+<section class="wallet-card">
+
+<div class="wallet-heading">
+
+<div>
+
+<div class="section-index">WALLET</div>
+
+<h2>Your cards, represented safely.</h2>
+
+<p>
+Prototype only: SPENDR stores nicknames and last four digits—not banking credentials.
+</p>
+
+</div>
+
+<button class="button button-primary" id="addCardBtn">
++ Add card
+</button>
+
+</div>
+
+<div class="wallet-stack" id="walletStack"></div>
+
+</section>
+
+<div class="utility-actions">
+
+<button class="text-button" id="editBalanceSecondary">
+Edit balance
+</button>
+
+<button class="text-button danger-text" id="resetDemo">
+Reset demo data
+</button>
+
+</div>
+
+</main>
+
+<div class="modal-backdrop" id="balanceModal" aria-hidden="true">
+
+<div class="modal" role="dialog" aria-modal="true">
+
+<button class="modal-close" data-close-modal="balanceModal">×</button>
+
+<p class="eyebrow">FINANCIAL SETUP</p>
+
+<h2>What's in your bank account right now?</h2>
+
+<form id="balanceForm">
+
+<label>
+Current balance
+<input name="balance" type="number" min="0" step="0.01" required placeholder="2450">
+</label>
+
+<div class="form-row">
+
+<label>
+Weekly spending limit
+<input name="budget" type="number" min="0" step="1" placeholder="1600">
+</label>
+
+<label>
+Next payday
+<input name="payday" type="date">
+</label>
+
+</div>
+
+<button class="button button-primary" type="submit">
+Save financial setup <span>→</span>
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="modal-backdrop" id="cardModal" aria-hidden="true">
+
+<div class="modal" role="dialog" aria-modal="true">
+
+<button class="modal-close" data-close-modal="cardModal">×</button>
+
+<p class="eyebrow">WALLET</p>
+
+<h2>Add a representative card.</h2>
+
+<form id="cardForm">
+
+<label>
+Card nickname
+<input name="nickname" required placeholder="Everyday Card">
+</label>
+
+<div class="form-row">
+
+<label>
+Bank
+<input name="bank" required placeholder="FNB">
+</label>
+
+<label>
+Type
+<select name="type">
+<option>Debit</option>
+<option>Credit</option>
+<option>Virtual</option>
+</select>
+</label>
+
+</div>
+
+<label>
+Last 4 digits
+<input name="last4" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required placeholder="4821">
+</label>
+
+<button class="button button-primary" type="submit">
+Add to wallet <span>→</span>
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

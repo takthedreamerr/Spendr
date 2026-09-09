@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>SPENDR — Transactions</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/jpeg" href="SPENDR%20LOGO.jpg">
+</head>
+
+<body class="app-page">
+
+<div class="grain"></div>
+
+<header class="app-header">
+
+<a class="brand" href="index.html">
+<img class="brand-logo" src="SPENDR%20LOGO.jpg" alt="SPENDR">
+</a>
+
+<nav class="app-nav">
+<a href="dashboard.html">Overview</a>
+<a class="active" href="transactions.html">Transactions</a>
+<a href="goals.html">Goals</a>
+</nav>
+
+<div class="app-actions">
+<button class="icon-btn theme-toggle" aria-label="Toggle colour theme">◐</button>
+<button class="avatar">T</button>
+</div>
+
+</header>
+
+<main class="transactions-wrap">
+
+<section class="page-heading">
+
+<div>
+
+<p class="eyebrow">
+<span class="eyebrow-dot"></span> MONEY MOVEMENT
+</p>
+
+<h1>
+Transactions <em>without the noise.</em>
+</h1>
+
+</div>
+
+<button class="button button-primary" id="addTransactionBtn">
++ Add transaction
+</button>
+
+</section>
+
+<section class="transaction-toolbar">
+
+<label class="search-box">
+
+<span>⌕</span>
+
+<input id="transactionSearch" type="search" placeholder="Search transactions...">
+
+</label>
+
+<div class="filter-group">
+
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="food">Food</button>
+<button class="filter-btn" data-filter="transport">Transport</button>
+<button class="filter-btn" data-filter="entertainment">Fun</button>
+<button class="filter-btn" data-filter="bills">Bills</button>
+<button class="filter-btn" data-filter="shopping">Shopping</button>
+
+</div>
+
+<select id="sortTransactions" class="sort-select">
+
+<option value="newest">Newest first</option>
+<option value="oldest">Oldest first</option>
+<option value="high">Highest amount</option>
+<option value="low">Lowest amount</option>
+
+</select>
+
+</section>
+
+<section class="transaction-layout">
+
+<div class="transaction-main">
+
+<div class="table-head">
+
+<span>TRANSACTION</span>
+<span>CATEGORY</span>
+<span>DATE</span>
+<span>AMOUNT</span>
+<span></span>
+
+</div>
+
+<div id="transactionList"></div>
+
+</div>
+
+<aside class="transaction-aside">
+
+<div class="aside-stat">
+
+<span>SPENDING</span>
+
+<strong id="monthSpend">R0.00</strong>
+
+<small id="monthContext">
+Current saved transactions
+</small>
+
+</div>
+
+<div class="aside-stat">
+
+<span>TRANSACTIONS</span>
+
+<strong id="transactionCount">0</strong>
+
+<small id="categoryCount">
+Across categories
+</small>
+
+</div>
+
+<div class="category-radar">
+
+<span>SPENDING TEMPERATURE</span>
+
+<div class="temperature" id="temperatureBars"></div>
+
+<p id="temperatureCopy">
+Add transactions to see your spending pattern.
+</p>
+
+</div>
+
+</aside>
+
+</section>
+
+</main>
+
+<div class="modal-backdrop" id="transactionModal" aria-hidden="true">
+
+<div class="modal" role="dialog" aria-modal="true">
+
+<button class="modal-close" data-close-modal="transactionModal">×</button>
+
+<p class="eyebrow">MONEY MOVEMENT</p>
+
+<h2 id="modalTitle">
+Add a transaction.
+</h2>
+
+<form id="transactionForm">
+
+<label>
+What was it?
+<input name="name" required placeholder="e.g. Campus café">
+</label>
+
+<div class="form-row">
+
+<label>
+Amount
+<input name="amount" type="number" min="0.01" step="0.01" required placeholder="120">
+</label>
+
+<label>
+Category
+<select name="category">
+<option value="food">Food</option>
+<option value="transport">Transport</option>
+<option value="entertainment">Entertainment</option>
+<option value="bills">Bills</option>
+<option value="shopping">Shopping</option>
+<option value="income">Income</option>
+</select>
+</label>
+
+</div>
+
+<label>
+Date
+<input name="date" type="date" required>
+</label>
+
+<label>
+Card
+<select name="card" id="transactionCard">
+<option value="">No card</option>
+</select>
+</label>
+
+<button class="button button-primary" type="submit" id="transactionSubmit">
+Add to SPENDR <span>→</span>
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

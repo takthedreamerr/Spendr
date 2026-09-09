@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>SPENDR — Goals</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/jpeg" href="SPENDR%20LOGO.jpg">
+</head>
+
+<body class="app-page">
+
+<div class="grain"></div>
+
+<header class="app-header">
+
+<a class="brand" href="index.html">
+<img class="brand-logo" src="SPENDR%20LOGO.jpg" alt="SPENDR">
+</a>
+
+<nav class="app-nav">
+<a href="dashboard.html">Overview</a>
+<a href="transactions.html">Transactions</a>
+<a class="active" href="goals.html">Goals</a>
+</nav>
+
+<div class="app-actions">
+<button class="icon-btn theme-toggle" aria-label="Toggle colour theme">◐</button>
+<button class="avatar">T</button>
+</div>
+
+</header>
+
+<main class="goals-wrap">
+
+<section class="page-heading">
+
+<div>
+
+<p class="eyebrow">
+<span class="eyebrow-dot"></span> MONEY WITH A DESTINATION
+</p>
+
+<h1>
+Give your money <em>somewhere to go.</em>
+</h1>
+
+</div>
+
+<button class="button button-primary" id="newGoalBtn">
++ New goal
+</button>
+
+</section>
+
+<section class="goals-grid" id="goalsGrid"></section>
+
+<section class="goal-philosophy">
+
+<div class="section-index">
+WHY GOALS WORK
+</div>
+
+<div>
+
+<h2>
+Don't save “more”.<br>
+<em>Save for something.</em>
+</h2>
+
+<p>
+Goals make trade-offs visible. When you add money to a goal,
+SPENDR moves it out of available cash and recalculates the rest
+of your financial picture.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<div class="modal-backdrop" id="goalModal" aria-hidden="true">
+
+<div class="modal" role="dialog" aria-modal="true">
+
+<button class="modal-close" data-close-modal="goalModal">×</button>
+
+<p class="eyebrow">NEW GOAL</p>
+
+<h2>
+What are you saving for?
+</h2>
+
+<form id="goalForm">
+
+<label>
+Goal name
+<input name="name" required placeholder="e.g. New laptop">
+</label>
+
+<div class="form-row">
+
+<label>
+Target amount
+<input name="target" type="number" min="1" step="0.01" required placeholder="6000">
+</label>
+
+<label>
+Already saved
+<input name="saved" type="number" min="0" step="0.01" value="0">
+</label>
+
+</div>
+
+<label>
+Target date
+<input name="date" type="date" required>
+</label>
+
+<button class="button button-primary" type="submit">
+Create goal <span>→</span>
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
